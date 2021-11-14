@@ -69,6 +69,8 @@ jobs:
           release_file="${release_name}${ARCHIVE_EXT}"
           mkdir "$release_name"
 
+          cp target/${{ matrix.target }}/release/${{ matrix.bin }} "$release_name"
+
           if [ "${{ runner.os }}" = "Windows" ]; then
             7z a "$release_file" "$release_name"
           else
